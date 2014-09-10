@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def full_title(title)
     base_title = "Reverse Auction"
     if title.empty?
@@ -7,4 +8,5 @@ module ApplicationHelper
       "#{base_title} | #{title}"
     end
   end
+
 end
