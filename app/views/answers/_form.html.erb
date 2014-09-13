@@ -1,26 +1,28 @@
-<%= form_for ([@question, @question.answers.build]) do |f| %>
+<h2>Submit Your Answer</h2>
+    <%= form_for ([@question, @question.answers.build]) do |f| %>
 
-    <p>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-    </p>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, class:"form-control" %>
+        </div>
 
-    <p>
-      <%= f.label :content %>
-      <%= f.text_area :content, rows: 5, cols: 50 %>
-    </p>
+        <div class="form-group">
+          <%= f.label :content %>
+          <%= f.text_area :content, rows: 5, cols: 50, class:"form-control" %>
+        </div>
 
-    <p>
-      <%= f.label 'Fee Estimate' %>
-      <%= f.text_field :estimated_fee %>
-    </p>
+        <div class="form-group">
+          <%= f.label 'Fee Estimate' %>
+          <%= f.text_field :estimated_fee, class:"form-control" %>
+        </div>
 
-    <p>
-      <%= f.label 'Estimated Time' %>
-      <%= f.text_field :estimated_time %>
-    </p>
+        <div class="form-group">
+          <%= f.label 'Estimated Time' %>
+          <%= f.text_field :estimated_time, class:"form-control" %>
+        </div>
 
-    <p>
-      <%= f.submit %>
-    </p>
+        <div class="form-group">
+          <%= f.submit %>
+        </div>
 <% end %>
+

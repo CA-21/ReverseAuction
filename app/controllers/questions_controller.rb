@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions = Question.all
+    @questions = Question.paginate(page: params[:page], per_page: 10)
   end
 
   def show
@@ -17,9 +17,10 @@ class QuestionsController < ApplicationController
   end
 
   def create
+
     @question = Question.new(question_params)
 
-    if @question.save
+    if verify_recaptcha(:model => @question, :message => "Oh! It's error with reCAPTCHA!") && @question.save
       redirect_to @question
     else
       render 'new'

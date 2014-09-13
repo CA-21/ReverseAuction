@@ -1,17 +1,22 @@
-<%= link_to 'Back', questions_path %>
 <p>
-  Question ID: <%= @question.id %>
+  <h4>Question ID: <strong><%= @question.id %></strong></h4>
 </p>
-<p>
-   Title: <%= @question.title %>
-</p>
+<h2 id="title">
+   <%= @question.title %>
+</h2>
 <p>
     Content: <%= @question.content %>
 </p>
-<p>
-  <%= link_to 'Edit', edit_question_path(@question) %>
-</p>
 
-<%= render 'answers/form' %>
-<h2>Answers</h2>
-<%= render @question.answers %>
+<div class="row">
+  <div class="col-md-12"><h2>Answers</h2></div>
+</div>
+<div class="row">
+  <div class="col-md-12"><%= render @question.answers %></div>
+</div>
+
+<% if lawyer_signed_in? %>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3"><%= render 'answers/form' %></div>
+    </div>
+<% end %>
