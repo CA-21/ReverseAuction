@@ -3,4 +3,10 @@
   <data-source source="LOCAL" name="Rails ReverseAuction: development" uuid="f780290d-0e96-4a94-8ad9-8e72ddca7576">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails ReverseAuction: test" uuid="009585c8-4deb-48a8-a353-11c238c8392c">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails ReverseAuction: production" uuid="b8a352c5-f2d4-4443-a567-ed1fb7a187d3">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>
