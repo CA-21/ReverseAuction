@@ -3,11 +3,13 @@
   <div class="col-sm-2 col-sm-offset-1">
     <p><h3><%= answer.lawyer.name %></h3></p>
     <p><%= gravatar_for(answer.lawyer) %></p>
-    <p><%= link_to 'Profile', '#', class:'btn btn-primary btn-large' %></p>
+    <p>Location: <strong><%= answer.lawyer.city %></strong></p>
+    <p>Phone: <strong><%= answer.lawyer.phone %></strong></p>
   </div>
   <div class="col-sm-8">
       <h3><%= answer.title %></h3>
       <p><%= answer.content %></p>
+      <p><em><%= answer.lawyer.name %> posted this answer <%= time_ago_in_words(answer.created_at) %> ago.</em></p>
       <div class="alert alert-success" role="alert">Estimated Fee is <strong><%= answer.estimated_fee %></strong>. Estimated time: <strong><%= answer.estimated_time %></strong>. <div class="pull-right">Contact: <strong><%= answer.lawyer.phone %></strong></div></div>
   </div>
 
