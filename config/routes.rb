@@ -1,5 +1,6 @@
 ReverseAuction::Application.routes.draw do
 
+  devise_for :lawyers
   root 'static_pages#index'
 
   resources :questions do
