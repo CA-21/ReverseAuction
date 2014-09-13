@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_lawyer!, only: [:edit, :update, :destroy]
+  before_action :ensure_admin, only: [:edit, :update, :destroy]
 
   def index
     @questions = Question.paginate(page: params[:page], per_page: 10)

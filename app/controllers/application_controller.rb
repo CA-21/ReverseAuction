@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def ensure_admin
+    unless current_lawyer.admin?
+      redirect_to root_url
+    end
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name << :registration_number << :address << :phone << :city
   end

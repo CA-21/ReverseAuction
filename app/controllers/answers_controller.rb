@@ -25,10 +25,4 @@ class AnswersController < ApplicationController
     def answer_params
       params.require(:answer).permit(:title, :content, :estimated_fee, :estimated_time)
     end
-
-    def ensure_admin
-      unless current_lawyer.admin?
-        redirect_to root_url
-      end
-    end
 end
