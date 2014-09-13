@@ -1,19 +1,15 @@
-<p>
-  <strong>Title:</strong>
-  <%= answer.title %>
-</p>
+<div class="row">
 
-<p>
-  <strong>Content:</strong>
-  <%= answer.content %>
-</p>
+  <div class="col-sm-2 col-sm-offset-1">
+    <p><h3><%= answer.lawyer.name %></h3></p>
+    <p><%= gravatar_for(answer.lawyer) %></p>
+    <p><%= link_to 'Profile', '#', class:'btn btn-primary btn-large' %></p>
+  </div>
+  <div class="col-sm-8">
+      <h3><%= answer.title %></h3>
+      <p><%= answer.content %></p>
+      <div class="alert alert-success" role="alert">Estimated Fee is <strong><%= answer.estimated_fee %></strong>. Estimated time: <strong><%= answer.estimated_time %></strong>. <div class="pull-right">Contact: <strong><%= answer.lawyer.phone %></strong></div></div>
+  </div>
 
-<p>
-  <strong>Fee Estimate:</strong>
-  <%= answer.estimated_fee %>
-</p>
-
-<p>
-  <strong>Time Estimate:</strong>
-  <%= answer.estimated_time %>
-</p>
+</div>
+<hr />
