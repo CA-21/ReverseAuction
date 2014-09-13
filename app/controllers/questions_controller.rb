@@ -14,13 +14,16 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
 
-    @question.save
-    redirect_to @question
+    if @question.save
+      redirect_to @question
+    else
+      render 'new'
+    end
   end
 
   private
     def question_params
-      params.require(:question).permit(:title, :content)
+      params.require(:question).permit(:title, :content, :city, :email, :phone)
     end
 
 end
