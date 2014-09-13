@@ -6,6 +6,6 @@ class Question < ActiveRecord::Base
   validates :email, presence: true
   validates :phone, presence: true
 
-  has_many :answers
+  has_many :answers, dependent: :destroy
 
 end

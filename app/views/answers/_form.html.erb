@@ -1,0 +1,26 @@
+<%= form_for ([@question, @question.answers.build]) do |f| %>
+
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :content %>
+      <%= f.text_area :content, rows: 5, cols: 50 %>
+    </p>
+
+    <p>
+      <%= f.label 'Fee Estimate' %>
+      <%= f.text_field :estimated_fee %>
+    </p>
+
+    <p>
+      <%= f.label 'Estimated Time' %>
+      <%= f.text_field :estimated_time %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>

@@ -1,8 +1,9 @@
 class Answer < ActiveRecord::Base
-  validates :title, presence: true, length: { minimum: 50, maximum: 150 }
-  validates :content, presence: true, length: { minimum: 200, maximum: 5000 }
-  validates :estimated_fee, presence: true, numericality: true
+  validates :title, presence: true
+  validates :content, presence: true
+  validates :estimated_fee, presence: true
   validates :estimated_time, presence: true
 
   belongs_to :question
+  belongs_to :lawyer
 end
