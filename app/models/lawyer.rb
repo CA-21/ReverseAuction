@@ -11,4 +11,8 @@ class Lawyer < ActiveRecord::Base
   validates :city, presence: true
 
   has_many :answers, dependent: :destroy
+
+  def admin?
+    self.admin
+  end
 end

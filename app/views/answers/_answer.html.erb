@@ -1,17 +1,25 @@
 <div class="row">
 
-  <div class="col-sm-2 col-sm-offset-1">
+  <div class="col-sm-2">
     <p><h3><%= answer.lawyer.name %></h3></p>
     <p><%= gravatar_for(answer.lawyer) %></p>
     <p>Location: <strong><%= answer.lawyer.city %></strong></p>
     <p>Phone: <strong><%= answer.lawyer.phone %></strong></p>
   </div>
-  <div class="col-sm-8">
+  <div class="col-sm-10">
       <h3><%= answer.title %></h3>
       <p><%= answer.content %></p>
       <p><em><%= answer.lawyer.name %> posted this answer <%= time_ago_in_words(answer.created_at) %> ago.</em></p>
       <div class="alert alert-success" role="alert">Estimated Fee is <strong><%= answer.estimated_fee %></strong>. Estimated time: <strong><%= answer.estimated_time %></strong>. <div class="pull-right">Contact: <strong><%= answer.lawyer.phone %></strong></div></div>
   </div>
-
+</div>
+<div class="row" id="question_admin_toolbar">
+  <div class="col-xs-8 col-xs-offset-2">
+    <% if lawyer_signed_in? %>
+        <% if current_lawyer.admin %>
+            <%= link_to 'Delete', [answer.question, answer], method: :delete, class:'btn btn-large btn-primary', data: { confirm: 'Are you sure?' } %>
+        <% end %>
+    <% end %>
+  </div>
 </div>
 <hr />
