@@ -1,5 +1,5 @@
-<h2>Submit Your Answer</h2>
-    <%= form_for ([@question, @question.answers.build]) do |f| %>
+<h2>Your Answer</h2>
+    <%= form_for @answer do |f| %>
 
         <div class="form-group">
           <%= f.label :title %>
@@ -10,6 +10,8 @@
           <%= f.label :content %>
           <%= f.text_area :content, rows: 5, cols: 50, class:"form-control" %>
         </div>
+
+        <%= f.hidden_field :question_id%>
 
         <div class="form-group">
           <%= f.label 'Fee Estimate' %>

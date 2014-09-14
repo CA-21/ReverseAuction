@@ -17,6 +17,14 @@ module ApplicationHelper
   end
 
 
+  # takes a question and places its id to the 'new' action of the answers controller
+  # for linking of question to answer
+
+  def answer_url_maker(question)
+      "/answers/new/#{question.id}"
+  end
+
+
   # Defines application-wide setting for application name. Change the app-name once
   # to get it reflected all over the application.
 

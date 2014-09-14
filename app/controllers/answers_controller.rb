@@ -2,19 +2,23 @@ class AnswersController < ApplicationController
   before_action :authenticate_lawyer!
   before_action :ensure_admin, only: :destroy
 
-  def create
+  def new
     @question = Question.find(params[:question_id])
-    @answer = @question.answers.create(answer_params)
+    @answer = Answer.new(question_id: params[:question_id])
+  end
+
+  def create
+    @answer = Answer.create(answer_params)
     @answer.lawyer_id = current_lawyer.id
     @answer.save
     flash[:notice] = 'Your answer was successfully created!'
 
-    redirect_to question_path(@question)
+    redirect_to question_path(@answer.question)
   end
 
   def destroy
-    @question = Question.find(params[:question_id])
-    @answer = @question.answers.find(params[:id])
+    @answer = Answer.find(params[:id])
+    @question = @answer.question
     @answer.destroy
 
     flash[:notice] = 'Answer deleted successfully!'
@@ -23,6 +27,6 @@ class AnswersController < ApplicationController
 
   private
     def answer_params
-      params.require(:answer).permit(:title, :content, :estimated_fee, :estimated_time)
+      params.require(:answer).permit(:title, :content, :estimated_fee, :estimated_time, :question_id)
     end
 end
