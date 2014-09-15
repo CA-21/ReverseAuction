@@ -3,9 +3,9 @@ ReverseAuction::Application.routes.draw do
   devise_for :lawyers
   root 'static_pages#index'
 
-  resources :questions do
-  end
+  resources :questions
   resources :answers
+  resources :lawyers, only: [:index, :show]
 
   match '/answers/new/:question_id', to: 'answers#new', via: 'get'
 

@@ -1,0 +1,28 @@
+<div class="row">
+  <% @lawyers.each do |lawyer| %>
+      <div class="row">
+
+        <div class="col-xs-2 col-xs-offset-1">
+          <p>Lawyer ID: <%= lawyer.id %></p>
+        </div>
+
+        <div class="col-xs-3 col-xs-offset-1">
+          <p><%= lawyer.name %></p>
+        </div>
+
+
+        <div class="col-xs-2 col-xs-offset-1">
+          <p><%= lawyer.city %></p>
+        </div>
+
+        <div class="col-xs-2">
+          <%= link_to 'View', lawyer_path(lawyer), class:'btn btn-primary btn-xs' %>
+        </div>
+      </div>
+  <% end %>
+  <div class="col-xs-5 col-xs-offset-5">
+    <%= will_paginate @lawyers %>
+  </div>
+
+
+</div>
