@@ -1,5 +1,6 @@
 # Reverse Auction
 This application allows your visitors to place their requirements on the site and let the service providers quote their best prices and time estimates.
 
-## General Requirements
-This application is developed as part of our in-house requirements of Lawyer based system. Therefore you should customize this application to your requirements before deploying it.
+## License
+The applications is provided here as an educational reference and it must not be used in any live production website without the written permission of Aamir Sayid.
+Owner can be contacted at aamir@aamirsayid.com
