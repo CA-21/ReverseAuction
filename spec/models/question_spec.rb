@@ -1,5 +1,13 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe Question, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Question do
+  it "is valid with a title"
+
+  it "is invalid without a title"
+
+  it "is valid with a content"
+
+  it "is invalid without a content"
+
+
 end
