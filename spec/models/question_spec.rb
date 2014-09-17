@@ -1,13 +1,49 @@
 require 'spec_helper'
 
 describe Question do
-  it "is valid with a title"
 
-  it "is invalid without a title"
+  before :each do
+    @question = Question.new(title: 'a' * 21, content: 'b' * 200, city: 'Somewhere', email: 'someone@example.com', phone: '123456789')
+  end
 
-  it "is valid with a content"
+  it 'requires a title' do
+    @question.title = 'a' * 21
+    expect(@question).to be_valid
 
-  it "is invalid without a content"
+    @question.title = 'a' * 10
+    expect(@question).not_to be_valid
+  end
 
+  it 'requires valid content' do
+    @question.content = 'a' * 201
+    expect(@question).to be_valid
+
+    @question.content = 'a' * 199
+    expect(@question).not_to be_valid
+  end
+
+  it 'requires valid email address' do
+    @question.email = 'someone@example.com'
+    expect(@question).to be_valid
+
+    @question.email = 'sometester'
+    expect(@question).not_to be_valid
+  end
+
+  it 'requires valid city' do
+    @question.city = 'somewhere'
+    expect(@question).to be_valid
+
+    @question.city = nil
+    expect(@question).not_to be_valid
+  end
+
+  it 'requires valid phone' do
+    @question.phone = '123456789'
+    expect(@question).to be_valid
+
+    @question.phone = 'something'
+    expect(@question).not_to be_valid
+  end
 
 end
