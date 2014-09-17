@@ -1,20 +1,38 @@
 require 'spec_helper'
 
 describe Answer do
-  it "is valid with a title"
 
-  it "is invalid without a title"
+  before :each do
+    @answer = Answer.new(title: 'a' * 11, content: 'a' * 201, estimated_fee: 5000, estimated_time: 'One Year')
+  end
 
-  it "is valid with a content"
+  it 'requires a valid title' do
+    expect(@answer).to be_valid
 
-  it "is invalid without a content"
+    @answer.title = 'a' * 8
+    expect(@answer).not_to be_valid
+  end
 
-  it "is valid with a pricing estimate"
+  it 'requires a valid content' do
+    expect(@answer).to be_valid
 
-  it "is invalid without a pricing estimate"
+    @answer.content = 'a' * 50
+    expect(@answer).not_to be_valid
+  end
 
-  it "is valid with a time estimate"
+  it 'requires a valid estimated fee' do
+    expect(@answer).to be_valid
 
-  it "is invalid without a time estimate"
+    @answer.estimated_fee = 'call on phone'
+    expect(@answer).not_to be_valid
+  end
+
+  it 'requires a valid estimated time' do
+    expect(@answer).to be_valid
+
+    @answer.estimated_fee = 'a' * 31
+    expect(@answer).not_to be_valid
+  end
+
 
 end
