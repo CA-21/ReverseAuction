@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Lawyer do
 
   before(:each) do
-    @lawyer = Lawyer.new(name: 'Some Tester', email: 'someone@example.com', registration_number: 'something', address: 'some road in some city', city: 'nowhere', phone: '123456789', password: 'password123')
+    @lawyer = FactoryGirl.create(:lawyer)
   end
 
   it 'is valid with a name' do
@@ -31,12 +31,16 @@ describe Lawyer do
   it 'is invalid with a duplicate email address' do
     @lawyer.save
 
-    lawyer2 = Lawyer.new(name: 'Some Tester', email: 'someone@example.com', registration_number: 'something', address: 'some road in some city', city: 'nowhere', phone: '123456789', password: 'password123')
+    lawyer2 = @lawyer.dup
     expect(lawyer2).not_to be_valid
   end
 
   it 'returns name, city, and registration as a string' do
     expect(@lawyer.to_s).to eq 'Some Tester, nowhere, something'
+  end
+
+  it 'has a valid factory for test data' do
+    expect(@lawyer).to be_valid
   end
 
   it 'does not allow invalid email addresses' do
