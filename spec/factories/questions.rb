@@ -2,7 +2,10 @@
 
 FactoryGirl.define do
   factory :question do
-    title "MyString"
-    content "MyText"
+    title 'a' * 21
+    content 'b' * 200
+    city 'Somewhere'
+    email 'someone@example.com'
+    phone '123456789'
   end
 end

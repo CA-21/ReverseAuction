@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Question do
 
   before :each do
-    @question = Question.new(title: 'a' * 21, content: 'b' * 200, city: 'Somewhere', email: 'someone@example.com', phone: '123456789')
+    @question = Question.new()
   end
 
   it 'requires a title' do
