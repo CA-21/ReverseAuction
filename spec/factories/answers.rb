@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :answer do
-    title "MyString"
-    content "MyText"
-    estimated_fee 1
-    estimated_time "MyString"
+    title 'a' * 51
+    content 'b' * 201
+    estimated_fee 100
+    estimated_time 'sometime'
   end
 end

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Lawyer do
 
   before(:each) do
-    @lawyer = FactoryGirl.create(:lawyer)
+    @lawyer = create(:lawyer)
   end
 
   it 'is valid with a name' do

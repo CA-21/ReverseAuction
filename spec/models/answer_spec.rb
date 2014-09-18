@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Answer do
 
   before :each do
-    @answer = Answer.new(title: 'a' * 11, content: 'a' * 201, estimated_fee: 5000, estimated_time: 'One Year')
+    @answer = Answer.new()
   end
 
   it 'requires a valid title' do
