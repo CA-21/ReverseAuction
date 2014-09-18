@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Question do
 
   before :each do
-    @question = Question.new()
+    @question = create(:question)
   end
 
   it 'requires a title' do

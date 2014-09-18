@@ -36,7 +36,7 @@ describe Lawyer do
   end
 
   it 'returns name, city, and registration as a string' do
-    expect(@lawyer.to_s).to eq 'Some Tester, nowhere, something'
+    expect(@lawyer.to_s).to eq "#{@lawyer.name}, #{@lawyer.city}, #{@lawyer.registration_number}"
   end
 
   it 'has a valid factory for test data' do

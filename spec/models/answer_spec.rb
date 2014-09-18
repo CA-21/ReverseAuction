@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Answer do
 
   before :each do
-    @answer = Answer.new()
+    @answer = create(:answer)
   end
 
   it 'requires a valid title' do

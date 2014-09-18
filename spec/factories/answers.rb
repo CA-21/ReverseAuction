@@ -6,5 +6,7 @@ FactoryGirl.define do
     content 'b' * 201
     estimated_fee 100
     estimated_time 'sometime'
+    association :question
+    association :lawyer
   end
 end

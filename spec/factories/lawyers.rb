@@ -1,13 +1,14 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
+require 'faker'
 
 FactoryGirl.define do
   factory :lawyer do
-    name 'Some Tester'
-    sequence(:email) { |n| "some_tester#{n}@example.com" }
+    name { "#{Faker::Name.first_name} + #{Faker::Name.last_name}" }
+    email { Faker::Internet.email }
     registration_number 'something'
     address 'some road in some city'
     city 'nowhere'
-    phone '123456789'
+    phone { Faker::PhoneNumber.phone_number }
     password 'password123'
   end
 end
